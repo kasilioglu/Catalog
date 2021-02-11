@@ -9,3 +9,9 @@ docker run -d --rm -name mongo -p 27017:27017 -v mongodbdata:/data/db -e MONGO_I
 And use SecretManager to store password
 dotnet user-secrets init
 dotnet user-secrets set MongoDbSettings:Password YourPWD
+
+# HealthCheck
+
+Using aspnetcore.healthchecks.mongodb package
+/health/ready   to check if service is connected to database
+/health/live   to check if service is up
