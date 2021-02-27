@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "u7KX8sT6GLQZ7OteCsCkS1E5ue1ez5Yzkh1G3TilFaPx0AI3CWzB0G3DKdAtIAPs3ekBhHdiMnfP1lxR/NkFJw==",
+  "success": true,
+  "projectFilePath": "C:\\Projects\\Catalog\\build.proj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kasil\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.0\\microsoft.netframework.referenceassemblies.1.0.0.nupkg.sha512",
+    "C:\\Users\\kasil\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net45\\1.0.0\\microsoft.netframework.referenceassemblies.net45.1.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
