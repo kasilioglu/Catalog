@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "bfb4c262-1cb6-46c8-990d-aa8b6232a012",
+		"name": "Catalog",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Item",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Bronze Sword\",\r\n    \"price\":32\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:5001/items",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Item",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://localhost:5001/items/9f12489c-c4ff-4538-82fd-9b085cb62d43",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"items",
+						"9f12489c-c4ff-4538-82fd-9b085cb62d43"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Bronze Sword\",\r\n    \"price\":35\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:5001/items/0ec26db8-8e0b-4a70-a91d-ff1a470e9beb",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"items",
+						"0ec26db8-8e0b-4a70-a91d-ff1a470e9beb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/health/ready",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"health",
+						"ready"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

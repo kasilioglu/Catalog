@@ -7,13 +7,7 @@ namespace Catalog.Api
     {
         public static ItemDto AsDto(this Item item)
         {
-            return new ItemDto()
-            {
-                Id = item.Id,
-                Name = item.Name,
-                CreateDate = item.CreateDate,
-                Price = item.Price
-            };
+            return new ItemDto(item.Id, item.Name, item.Description, item.Price, item.CreateDate);
         }
     }
 }

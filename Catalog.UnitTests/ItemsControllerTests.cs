@@ -48,9 +48,7 @@ namespace Catalog.UnitTests
             var result = await controller.GetItemAsync(Guid.NewGuid());
 
             //Assert
-            result.Value.Should().BeEquivalentTo(
-                expectedItem,
-                options => options.ComparingByMembers<Item>());
+            result.Value.Should().BeEquivalentTo(expectedItem);
         }
 
         [Fact]
@@ -67,20 +65,14 @@ namespace Catalog.UnitTests
             var actualItems = await controller.GetItemsAsync();
 
             //Assert
-            actualItems.Should().BeEquivalentTo(
-                expectedItems,
-                options => options.ComparingByMembers<Item>());
+            actualItems.Should().BeEquivalentTo(expectedItems);
         }
 
         [Fact]
         public async Task CreateItemAsync_WithItemToCreate_ReturnsCreatedItem()
         {
             // Arrange
-            var itemToCreate = new CreateItemDto()
-            {
-                Name = Guid.NewGuid().ToString(),
-                Price = rand.Next(1000)
-            };
+            var itemToCreate = new CreateItemDto(Guid.NewGuid().ToString(), string.Empty, rand.Next(1000));
 
             var controller = new ItemsController(repositoryStub.Object, loggerStub.Object);
 
@@ -89,8 +81,7 @@ namespace Catalog.UnitTests
 
             //Assert
             var createdItem = (result.Result as CreatedAtActionResult).Value as ItemDto;
-            itemToCreate.Should().BeEquivalentTo(
-                createdItem,
+            itemToCreate.Should().BeEquivalentTo(createdItem,
                 options => options.ComparingByMembers<ItemDto>().ExcludingMissingMembers());
 
             createdItem.Id.Should().NotBeEmpty();
@@ -106,11 +97,7 @@ namespace Catalog.UnitTests
                 .ReturnsAsync(exitingItem);
 
             var itemId = exitingItem.Id;
-            var itemToUpdate = new UpdateItemDto()
-            {
-                Name = Guid.NewGuid().ToString(),
-                Price = exitingItem.Price + 3
-            };
+            var itemToUpdate = new UpdateItemDto(Guid.NewGuid().ToString(), string.Empty, exitingItem.Price + 3);
 
             var controller = new ItemsController(repositoryStub.Object, loggerStub.Object);
 
@@ -121,6 +108,7 @@ namespace Catalog.UnitTests
             result.Should().BeOfType<NoContentResult>();
         }
 
+        [Fact]
         public async Task DeleteItemAsync_WithExistingItem_ReturnsNoContent()
         {
             // Arrange
@@ -145,6 +133,7 @@ namespace Catalog.UnitTests
             {
                 Id = Guid.NewGuid(),
                 Name = Guid.NewGuid().ToString(),
+                Description = string.Empty,
                 CreateDate = DateTimeOffset.UtcNow,
                 Price = rand.Next(1000)
             };
